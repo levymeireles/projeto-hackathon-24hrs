@@ -1,4 +1,4 @@
-Projeto 24Horas
+Projeto 24Horas desenvolvido com os colaboradores: @igorM002, @vlfernandes, @eulaludmila
 
 Para utilizar o banco de dados é preciso entrar no mysql pelo prompt de comando
 
