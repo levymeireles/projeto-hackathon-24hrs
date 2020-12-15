@@ -1,0 +1,370 @@
+-- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+--
+-- Host: localhost    Database: db_hackathon
+-- ------------------------------------------------------
+-- Server version	8.0.15
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8mb4 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `tbl_aluno`
+--
+
+DROP TABLE IF EXISTS `tbl_aluno`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_aluno` (
+  `cod_aluno` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `cpf` varchar(45) DEFAULT NULL,
+  `cod_turma` int(11) NOT NULL,
+  PRIMARY KEY (`cod_aluno`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_aluno`
+--
+
+LOCK TABLES `tbl_aluno` WRITE;
+/*!40000 ALTER TABLE `tbl_aluno` DISABLE KEYS */;
+INSERT INTO `tbl_aluno` VALUES (1,'Luisa','123456789',1);
+/*!40000 ALTER TABLE `tbl_aluno` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_atividade`
+--
+
+DROP TABLE IF EXISTS `tbl_atividade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_atividade` (
+  `cod_atividade` int(11) NOT NULL AUTO_INCREMENT,
+  `atividade` varchar(45) DEFAULT NULL,
+  `cod_professor_turma_disciplina` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  PRIMARY KEY (`cod_atividade`),
+  KEY `fk_tbl_professor_turma_disciplina_cod_professor_turma_disci_idx` (`cod_professor_turma_disciplina`),
+  CONSTRAINT `fk_tbl_professor_turma_disciplina_cod_professor_turma_disciplina` FOREIGN KEY (`cod_professor_turma_disciplina`) REFERENCES `tbl_professor_turma_disciplina` (`cod_professor_turma_disciplina`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_atividade`
+--
+
+LOCK TABLES `tbl_atividade` WRITE;
+/*!40000 ALTER TABLE `tbl_atividade` DISABLE KEYS */;
+INSERT INTO `tbl_atividade` VALUES (1,'',1,'PHP');
+/*!40000 ALTER TABLE `tbl_atividade` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_curso`
+--
+
+DROP TABLE IF EXISTS `tbl_curso`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_curso` (
+  `cod_curso` int(11) NOT NULL AUTO_INCREMENT,
+  `curso` varchar(45) NOT NULL,
+  PRIMARY KEY (`cod_curso`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_curso`
+--
+
+LOCK TABLES `tbl_curso` WRITE;
+/*!40000 ALTER TABLE `tbl_curso` DISABLE KEYS */;
+INSERT INTO `tbl_curso` VALUES (1,'Informática');
+/*!40000 ALTER TABLE `tbl_curso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_curso_disciplina`
+--
+
+DROP TABLE IF EXISTS `tbl_curso_disciplina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_curso_disciplina` (
+  `cod_curso_disciplina` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_disciplina` int(11) NOT NULL,
+  `cod_curso` int(11) NOT NULL,
+  PRIMARY KEY (`cod_curso_disciplina`),
+  KEY `fk_tbl_curso_cod_curso_idx` (`cod_curso`),
+  KEY `fk_tbl_disciplina_cod_disciplina_idx` (`cod_disciplina`),
+  CONSTRAINT `fk_tbl_curso_cod_curso` FOREIGN KEY (`cod_curso`) REFERENCES `tbl_curso` (`cod_curso`),
+  CONSTRAINT `fk_tbl_disciplina_cod_disciplina` FOREIGN KEY (`cod_disciplina`) REFERENCES `tbl_disciplina` (`cod_disciplina`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_curso_disciplina`
+--
+
+LOCK TABLES `tbl_curso_disciplina` WRITE;
+/*!40000 ALTER TABLE `tbl_curso_disciplina` DISABLE KEYS */;
+INSERT INTO `tbl_curso_disciplina` VALUES (1,1,1);
+/*!40000 ALTER TABLE `tbl_curso_disciplina` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_disciplina`
+--
+
+DROP TABLE IF EXISTS `tbl_disciplina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_disciplina` (
+  `cod_disciplina` int(11) NOT NULL AUTO_INCREMENT,
+  `disciplina` varchar(100) NOT NULL,
+  PRIMARY KEY (`cod_disciplina`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_disciplina`
+--
+
+LOCK TABLES `tbl_disciplina` WRITE;
+/*!40000 ALTER TABLE `tbl_disciplina` DISABLE KEYS */;
+INSERT INTO `tbl_disciplina` VALUES (1,'PHP');
+/*!40000 ALTER TABLE `tbl_disciplina` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_funcionario`
+--
+
+DROP TABLE IF EXISTS `tbl_funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_funcionario` (
+  `cod_funcionario` int(11) NOT NULL AUTO_INCREMENT,
+  `funcionario` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL,
+  `cod_nivel_funcionario` int(11) NOT NULL,
+  PRIMARY KEY (`cod_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_funcionario`
+--
+
+LOCK TABLES `tbl_funcionario` WRITE;
+/*!40000 ALTER TABLE `tbl_funcionario` DISABLE KEYS */;
+INSERT INTO `tbl_funcionario` VALUES (1,'Rogerio','rog@uol.com','123',1);
+/*!40000 ALTER TABLE `tbl_funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_matricula_aluno`
+--
+
+DROP TABLE IF EXISTS `tbl_matricula_aluno`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_matricula_aluno` (
+  `cod_matricula` int(11) NOT NULL AUTO_INCREMENT,
+  `matricula` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `data_matriculada` date DEFAULT NULL,
+  `data_finalizada` date DEFAULT NULL,
+  `cod_aluno` int(11) NOT NULL,
+  `pontos` int(11) DEFAULT '0',
+  PRIMARY KEY (`cod_matricula`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_matricula_aluno`
+--
+
+LOCK TABLES `tbl_matricula_aluno` WRITE;
+/*!40000 ALTER TABLE `tbl_matricula_aluno` DISABLE KEYS */;
+INSERT INTO `tbl_matricula_aluno` VALUES (1,'01','123',NULL,NULL,1,10);
+/*!40000 ALTER TABLE `tbl_matricula_aluno` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_nivel_funcionario`
+--
+
+DROP TABLE IF EXISTS `tbl_nivel_funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_nivel_funcionario` (
+  `cod_nivel_funcionario` int(11) NOT NULL AUTO_INCREMENT,
+  `nivel_funcionario` varchar(100) NOT NULL,
+  PRIMARY KEY (`cod_nivel_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_nivel_funcionario`
+--
+
+LOCK TABLES `tbl_nivel_funcionario` WRITE;
+/*!40000 ALTER TABLE `tbl_nivel_funcionario` DISABLE KEYS */;
+INSERT INTO `tbl_nivel_funcionario` VALUES (1,'professor');
+/*!40000 ALTER TABLE `tbl_nivel_funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_professor`
+--
+
+DROP TABLE IF EXISTS `tbl_professor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_professor` (
+  `cod_professor` int(11) NOT NULL AUTO_INCREMENT,
+  `professor` varchar(100) NOT NULL,
+  PRIMARY KEY (`cod_professor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_professor`
+--
+
+LOCK TABLES `tbl_professor` WRITE;
+/*!40000 ALTER TABLE `tbl_professor` DISABLE KEYS */;
+INSERT INTO `tbl_professor` VALUES (1,'Rogerio');
+/*!40000 ALTER TABLE `tbl_professor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_professor_turma_disciplina`
+--
+
+DROP TABLE IF EXISTS `tbl_professor_turma_disciplina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_professor_turma_disciplina` (
+  `cod_professor_turma_disciplina` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_turma` int(11) NOT NULL,
+  `cod_professor` int(11) NOT NULL,
+  `cod_curso_disciplina` int(11) NOT NULL,
+  PRIMARY KEY (`cod_professor_turma_disciplina`),
+  KEY `fk_tbl_turma_cod_turma_idx` (`cod_turma`),
+  KEY `fk_tbl_professor_cod_professor_idx` (`cod_professor`),
+  KEY `fk_tbl_curso_disciplina_idx` (`cod_curso_disciplina`),
+  CONSTRAINT `fk_tbl_curso_disciplina` FOREIGN KEY (`cod_curso_disciplina`) REFERENCES `tbl_curso_disciplina` (`cod_curso_disciplina`),
+  CONSTRAINT `fk_tbl_professor_cod_professor` FOREIGN KEY (`cod_professor`) REFERENCES `tbl_professor` (`cod_professor`),
+  CONSTRAINT `fk_tbl_turma_cod_turma` FOREIGN KEY (`cod_turma`) REFERENCES `tbl_turma` (`cod_turma`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_professor_turma_disciplina`
+--
+
+LOCK TABLES `tbl_professor_turma_disciplina` WRITE;
+/*!40000 ALTER TABLE `tbl_professor_turma_disciplina` DISABLE KEYS */;
+INSERT INTO `tbl_professor_turma_disciplina` VALUES (1,1,1,1);
+/*!40000 ALTER TABLE `tbl_professor_turma_disciplina` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_questao`
+--
+
+DROP TABLE IF EXISTS `tbl_questao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_questao` (
+  `cod_questao` int(11) NOT NULL AUTO_INCREMENT,
+  `questao` varchar(255) NOT NULL,
+  `pontos` int(11) NOT NULL,
+  `cod_atividade` int(11) NOT NULL,
+  PRIMARY KEY (`cod_questao`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_questao`
+--
+
+LOCK TABLES `tbl_questao` WRITE;
+/*!40000 ALTER TABLE `tbl_questao` DISABLE KEYS */;
+INSERT INTO `tbl_questao` VALUES (1,'O que é PHP ?',5,1);
+/*!40000 ALTER TABLE `tbl_questao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_resposta`
+--
+
+DROP TABLE IF EXISTS `tbl_resposta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_resposta` (
+  `cod_resposta` int(11) NOT NULL AUTO_INCREMENT,
+  `resposta` mediumtext NOT NULL,
+  `verificacao` tinyint(4) NOT NULL,
+  `cod_questao` int(11) NOT NULL,
+  PRIMARY KEY (`cod_resposta`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_resposta`
+--
+
+LOCK TABLES `tbl_resposta` WRITE;
+/*!40000 ALTER TABLE `tbl_resposta` DISABLE KEYS */;
+INSERT INTO `tbl_resposta` VALUES (1,'Linguagem de Programação',1,1),(2,'sdsds',0,1),(3,'sds',0,1),(4,'dsds',0,1);
+/*!40000 ALTER TABLE `tbl_resposta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tbl_turma`
+--
+
+DROP TABLE IF EXISTS `tbl_turma`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tbl_turma` (
+  `cod_turma` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_turma` varchar(45) NOT NULL,
+  PRIMARY KEY (`cod_turma`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_turma`
+--
+
+LOCK TABLES `tbl_turma` WRITE;
+/*!40000 ALTER TABLE `tbl_turma` DISABLE KEYS */;
+INSERT INTO `tbl_turma` VALUES (1,'INF4T');
+/*!40000 ALTER TABLE `tbl_turma` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-08-30 23:43:31

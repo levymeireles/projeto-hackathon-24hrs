@@ -1,0 +1,417 @@
+.casas{
+    border-radius:50%;
+    width:200px;
+    height: 150px;
+}
+
+.hr{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.nav-link{
+    margin-bottom:20px;
+}
+
+.selecioneArquivos{
+    margin-top:20px;
+  
+}
+
+.lista2{
+    list-style:upper-alpha;
+    margin-top: 50px;
+}
+
+.resposta{
+
+    margin-top:5px;
+}
+
+.pergunta{
+    margin-top:2rem;
+}
+
+.selected{
+    margin-top:20px; 
+    margin-bottom:50px; 
+}
+
+.enviar{
+    margin-top:30px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa;
+}
+
+.conteudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.questoes{
+    width: 45vw;
+    min-width: 20rem;
+}
+
+.questao{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.questao .pergunta{
+    min-width: 7rem;
+}
+
+.questao select{
+    margin-right: 1rem;
+}
+
+.questao .pergunta:last-child{
+    width: 7rem;
+}
+
+.questao:last-child{
+    justify-content: flex-end;
+}
+
+.questao:last-child input{
+    margin-top: 2rem;
+    width: 8.5rem;
+}
+
+.alternativas{
+    width: 50vw;
+}
+
+a.zoom:hover {
+    font-size: 14pt;
+    transition: 1s;
+}
+ 
+.table{
+    border-spacing: 20px;
+
+}
+
+
+/*formatação da casa stark*/
+.stark{
+    width:250px;
+    height:150px;
+    background-image:url(../img/stark.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.stark:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.stark:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+/*formatação da casa lennyster*/
+.lenni{
+    width:250px;
+    height:150px;
+    background-image:url(../img/lannister.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.lenni:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.lenni:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+/* formatação da casa grayjoy*/
+.joy{
+    width:250px;
+    height:150px;
+    background-image:url(../img/greyjoy.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.joy:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.joy:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+/*formatação da casa arryn*/
+
+.arryn{
+    width:250px;
+    height:150px;
+    background-image:url(../img/arryn.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.arryn:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.arryn:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+
+/* formatação da casa tully*/
+
+.tully{
+    width:250px;
+    height:150px;
+    background-image:url(../img/tully.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.tully:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.tully:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+
+/* formatação da caa frey */
+
+.frey{
+    width:250px;
+    height:150px;
+    background-image:url(../img/housefrey.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.frey:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.frey:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+
+/* formatação da casa targaryen*/
+
+.targa{
+    width:250px;
+    height:150px;
+    background-image:url(../img/targaryen.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.targa:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.targa:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+/* formatação da casa baratheon*/
+
+.bara{
+    width:250px;
+    height:150px;
+    background-image:url(../img/baratheon.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.bara:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.bara:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+
+/* formatação da casa tyrell*/
+
+.tyrell{
+    width:250px;
+    height:150px;
+    background-image:url(../img/tyrell.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.tyrell:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.tyrell:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+
+/* formatação da casa tarly*/
+
+.tarly{
+    width:250px;
+    height:150px;
+    background-image:url(../img/tarly.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.tarly:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.tarly:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+
+/* formatação da casa martell*/
+
+.martell{
+    width:250px;
+    height:150px;
+    background-image:url(../img/martell.jpg) ;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    border-radius: 70px;
+    box-sizing: border-box;
+}
+
+.martell:hover{
+    box-shadow:5px 5px 5px 0px rgba(0,0,0,0.5);
+    cursor:pointer;
+}
+
+.martell:hover>.texto{
+    transition:1s;
+    opacity:0.8;
+}
+
+.texto{
+    width: inherit;
+    height: inherit;
+    font-size:30px;
+    padding-top: 50px;
+    padding-left:80px;
+    font-weight: bold;
+    list-style-type: upper-case;
+    color: white;
+    opacity: 0;
+    text-decoration:underline;
+}
+
+.link_grupo{
+    text-decoration: none;
+    color: #000;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border: 0.1rem solid #000;
+    border-radius: 0.75rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.link_grupo:hover{
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border: 0.1rem solid #007bff;
+    background-color: #007bff;
+    border-radius: 0.75rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.lista_grupos{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.tudo{
+    float: left;
+    align-items: center;
+    padding: 0rem !important;
+    margin-left: 5vw;
+}
+
+.mostrar_grupo{
+    margin-left: 5vw;
+    background-color: #ccc;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mostrar_grupo span h4:last-child{
+    font-size: 1rem;
+
+}
+
+.mostrar_grupo span{
+    margin: 0 0 1rem 1rem;
+    width: calc(100% - 1rem);
+    float: left;    
+}
